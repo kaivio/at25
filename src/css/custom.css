@@ -5,26 +5,290 @@
  */
 
 /* You can override the default Infima variables here. */
+
+/* @import 'tailwindcss/base'; */
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+/* @import 'https://cdn.jsdelivr.net/npm/codemirror@5.65.14/theme/solarized.css'; */
+
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #4abaf2;
+  --ifm-color-primary-dark: #2badf0;
+  --ifm-color-primary-darker: #1ca7ef;
+  --ifm-color-primary-darkest: #0f8ccd;
+  --ifm-color-primary-light: #65c3f4;
+  --ifm-color-primary-lighter: #74c9f5;
+  --ifm-color-primary-lightest: #a0daf8;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  --ifm-font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', 'Microsoft YaHei', monospace;
+
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+:root[data-theme='dark'] {
+  /* --ifm-color-primary: #48b8f2;
+  --ifm-color-primary-dark: #2badf0;
+  --ifm-color-primary-darker: #1ca7ef;
+  --ifm-color-primary-darkest: #0f8ccd;
+  --ifm-color-primary-light: #65c3f4;
+  --ifm-color-primary-lighter: #74c9f5;
+  --ifm-color-primary-lightest: #a0daf8; */
+
+  --ifm-color-primary: #5fb5b9;
+  --ifm-color-primary-dark: #4dabaf;
+  --ifm-color-primary-darker: #48a1a6;
+  --ifm-color-primary-darkest: #3c8588;
+  --ifm-color-primary-light: #72bec2;
+  --ifm-color-primary-lighter: #7cc3c6;
+  --ifm-color-primary-lightest: #99d0d3;
+
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+
+
+}
+
+.dropdown-menu {
+  background-color: var(--ifm-dropdown-background-color);
+  border-radius: var(--ifm-global-radius);
+  box-shadow: var(--ifm-global-shadow-md);
+  /* box-shadow: var(--ifm-global-shadow-lw); */
+  /* left: 0;
+  list-style: none;
+  max-height: 80vh;
+  min-width: 10rem;
+  opacity: 0;
+  overflow-y: auto;
+  padding: 0.5rem;
+  pointer-events: none;
+  position: absolute;
+  transform: translateY(-0.625rem);
+  visibility: hidden;
+  z-index: var(--ifm-z-index-dropdown);
+  transition-property: opacity, transform, visibility;
+  transition-duration: var(--ifm-transition-fast);
+  transition-timing-function: var(--ifm-transition-timing-default); */
+}
+
+.navbar__link--active {
+  color: var(--ifm-navbar-link-color) !important;
+}
+
+
+.inline-size-max {
+  inline-size: max-content;
+}
+
+pre,
+code,
+.react-json-view {
+  font-family: var(--ifm-font-family-monospace) !important;
+}
+
+.CodeMirror,
+.cm-editor {
+  height: 100%;
+  cursor: text;
+  /* box-shadow: none !important; */
+  font-family: var(--ifm-font-family-monospace) !important;
+}
+
+.cm-content {
+  padding-right: 4px !important;
+}
+
+
+/* .CodeMirror-lines{
+  padding: 0;
+} */
+
+.no-btn {
+  background: transparent;
+  color: inherit;
+  border: none;
+  font-size: inherit;
+  padding: 0;
+  margin: 0;
+
+}
+
+.btn {
+  cursor: pointer;
+  user-select: none;
+}
+
+.ibtn {
+  padding: 8px;
+  border-radius: 50%;
+  font-size: 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn:hover,
+.ibtn:hover {
+  background: color-mix(in srgb, #000000 0%, currentColor 12.5%);
+}
+
+.btn:active,
+.ibtn:active {
+  background: color-mix(in srgb, #000000 0%, currentColor 25%);
+}
+
+
+/* @media (hover:hover) {
+  .my-button:hover::before {
+    background-color: currentColor;
+    display: block;
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.25;
+
+  }
+} */
+
+.my-button::before:hover {
+  background-color: currentColor;
+  display: block;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.25;
+
+
+}
+
+
+.my-button {
+  position: relative;
+  width: max-content;
+  height: max-content;
+  /* width: 200px;
+  height: 100px; */
+  /* display: flex; */
+}
+
+.editor-ui {
+  background: var(--gruvbox-mode-bg-1);
+  color: var(--gruvbox-mode-fg-3);
+}
+
+.editor-tabs>.active {
+  background: var(--gruvbox-mode-bg-0);
+  color: var(--gruvbox-mode-fg-1);
+
+}
+
+.editor-popup {
+  background: var(--gruvbox-mode-bg-2);
+  color: var(--gruvbox-mode-fg-0);
+  /* border: 1px solid var(--gruvbox-mode-gray); */
+  border-radius: 4px;
+  box-shadow: 0px 0px 2px var(--gruvbox-mode-fg-0);
+}
+
+:root {
+  --gruvbox-abs-dark-0-hard: #1d2021;
+  --gruvbox-abs-dark-0: #282828;
+  --gruvbox-abs-dark-0-soft: #32302f;
+  --gruvbox-abs-dark-1: #3c3836;
+  --gruvbox-abs-dark-2: #504945;
+  --gruvbox-abs-dark-3: #665c54;
+  --gruvbox-abs-dark-4: #7c6f64;
+  --gruvbox-abs-dark-4-256: #7c6f64;
+  --gruvbox-abs-gray-245: #928374;
+  --gruvbox-abs-gray-244: #928374;
+  --gruvbox-abs-light-0-hard: #f9f5d7;
+  --gruvbox-abs-light-0: #fbf1c7;
+  --gruvbox-abs-light-0-soft: #f2e5bc;
+  --gruvbox-abs-light-1: #ebdbb2;
+  --gruvbox-abs-light-2: #d5c4a1;
+  --gruvbox-abs-light-3: #bdae93;
+  --gruvbox-abs-light-4: #a89984;
+  --gruvbox-abs-light-4-256: #a89984;
+  --gruvbox-abs-bright-red: #fb4934;
+  --gruvbox-abs-bright-green: #b8bb26;
+  --gruvbox-abs-bright-yellow: #fabd2f;
+  --gruvbox-abs-bright-blue: #83a598;
+  --gruvbox-abs-bright-purple: #d3869b;
+  --gruvbox-abs-bright-aqua: #8ec07c;
+  --gruvbox-abs-bright-orange: #fe8019;
+  --gruvbox-abs-neutral-red: #cc241d;
+  --gruvbox-abs-neutral-green: #98971a;
+  --gruvbox-abs-neutral-yellow: #d79921;
+  --gruvbox-abs-neutral-blue: #458588;
+  --gruvbox-abs-neutral-purple: #b16286;
+  --gruvbox-abs-neutral-aqua: #689d6a;
+  --gruvbox-abs-neutral-orange: #d65d0e;
+  --gruvbox-abs-faded-red: #9d0006;
+  --gruvbox-abs-faded-green: #79740e;
+  --gruvbox-abs-faded-yellow: #b57614;
+  --gruvbox-abs-faded-blue: #076678;
+  --gruvbox-abs-faded-purple: #8f3f71;
+  --gruvbox-abs-faded-aqua: #427b58;
+  --gruvbox-abs-faded-orange: #af3a03;
+  --gruvbox-mode-lh: #d5c4a17f !important;
+  --gruvbox-mode-bg-0: var(--gruvbox-abs-light-0);
+  --gruvbox-mode-bg-0-s: var(--gruvbox-abs-light-0-soft);
+  --gruvbox-mode-bg-0-h: var(--gruvbox-abs-light-0-hard);
+  --gruvbox-mode-bg-1: var(--gruvbox-abs-light-1);
+  --gruvbox-mode-bg-2: var(--gruvbox-abs-light-2);
+  --gruvbox-mode-bg-3: var(--gruvbox-abs-light-3);
+  --gruvbox-mode-bg-4: var(--gruvbox-abs-light-4);
+  --gruvbox-mode-gray: var(--gruvbox-abs-gray-244);
+  --gruvbox-mode-fg-0: var(--gruvbox-abs-dark-0);
+  --gruvbox-mode-fg-1: var(--gruvbox-abs-dark-1);
+  --gruvbox-mode-fg-2: var(--gruvbox-abs-dark-2);
+  --gruvbox-mode-fg-3: var(--gruvbox-abs-dark-3);
+  --gruvbox-mode-fg-4: var(--gruvbox-abs-dark-4);
+  --gruvbox-mode-fg-4-256: var(--gruvbox-abs-dark-4-256);
+  --gruvbox-mode-red: var(--gruvbox-abs-neutral-red);
+  --gruvbox-mode-green: var(--gruvbox-abs-neutral-green);
+  --gruvbox-mode-yellow: var(--gruvbox-abs-neutral-yellow);
+  --gruvbox-mode-blue: var(--gruvbox-abs-neutral-blue);
+  --gruvbox-mode-purple: var(--gruvbox-abs-neutral-purple);
+  --gruvbox-mode-aqua: var(--gruvbox-abs-neutral-aqua);
+  --gruvbox-mode-orange: var(--gruvbox-abs-neutral-orange);
+}
+
+[data-theme='dark'] {
+  --gruvbox-mode-lh: #5049457f !important;
+  --gruvbox-mode-bg-0: var(--gruvbox-abs-dark-0);
+  --gruvbox-mode-bg-0-s: var(--gruvbox-abs-dark-0-soft);
+  --gruvbox-mode-bg-0-h: var(--gruvbox-abs-dark-0-hard);
+  --gruvbox-mode-bg-1: var(--gruvbox-abs-dark-1);
+  --gruvbox-mode-bg-2: var(--gruvbox-abs-dark-2);
+  --gruvbox-mode-bg-3: var(--gruvbox-abs-dark-3);
+  --gruvbox-mode-bg-4: var(--gruvbox-abs-dark-4);
+  --gruvbox-mode-gray: var(--gruvbox-abs-gray-244);
+  --gruvbox-mode-fg-0: var(--gruvbox-abs-light-0);
+  --gruvbox-mode-fg-1: var(--gruvbox-abs-light-1);
+  --gruvbox-mode-fg-2: var(--gruvbox-abs-light-2);
+  --gruvbox-mode-fg-3: var(--gruvbox-abs-light-3);
+  --gruvbox-mode-fg-4: var(--gruvbox-abs-light-4);
+  --gruvbox-mode-fg-4-256: var(--gruvbox-abs-light-4-256);
+  --gruvbox-mode-red: var(--gruvbox-abs-bright-red);
+  --gruvbox-mode-green: var(--gruvbox-abs-bright-green);
+  --gruvbox-mode-yellow: var(--gruvbox-abs-bright-yellow);
+  --gruvbox-mode-blue: var(--gruvbox-abs-bright-blue);
+  --gruvbox-mode-purple: var(--gruvbox-abs-bright-purple);
+  --gruvbox-mode-aqua: var(--gruvbox-abs-bright-aqua);
+  --gruvbox-mode-orange: var(--gruvbox-abs-bright-orange);
+}
+
+.cm-gutters {
+  border: none !important;
+}
+
+.cm-cursor,
+.cm-dropCursor {
+  border-left-width: 1.5px !important;
 }

@@ -1,4 +1,5 @@
-/**
+// 本文件已被放弃使用
+/** 
  * Creating a sidebar enables you to:
  - create an ordered group of docs
  - render a sidebar for each doc of that group
