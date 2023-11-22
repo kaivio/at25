@@ -1,3 +1,8 @@
+---
+last_update:
+  author: LingFeng-bbben
+---
+
 ### 为什么软件无法启动？
 
 - 请确认您安装了`.net Framework 4.7.2`
@@ -66,5 +71,3 @@
 6. 请使用偏移来对准小节线
 
 
-Authors :
-- LingFeng-bbben

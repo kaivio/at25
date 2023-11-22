@@ -1,3 +1,8 @@
+---
+last_update:
+  author: LingFeng-bbben
+---
+
 Welcome to the MajdataView wiki!
 这里将会放一些写谱和软件操作上的入门指南！
 
@@ -6,5 +11,3 @@ Welcome to the MajdataView wiki!
 还在建设中。。。
 欢迎加入majdata discord：https://discord.gg/VSvTGHNQfQ
 
-Authors :
-- LingFeng-bbben

@@ -20,3 +20,8 @@ for file in $files; do
     # 在文件末尾处输入历史提交用户名
     echo -e "\n\nAuthors :\n$authors" >> "$repo_root/$file"
 done
+
+cat <<EOF
+sed -i '1s/^/---\nlast_update:\n  author: LingFeng-bbben\n---\n/' *.md
+sed -i '$-1,$s/.*//' *.md
+EOF

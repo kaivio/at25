@@ -17,6 +17,7 @@ const config = {
         id: 'archive',
         path: 'archive',
         routeBasePath: 'archive',
+        showLastUpdateAuthor: true,
       },
     ],
     '@docusaurus/theme-live-codeblock',
@@ -80,8 +81,12 @@ const config = {
       ({
         docs: {
           // sidebarPath: './sidebars.js',
+          // showLastUpdateAuthor: true,
+          // showLastUpdateTime: true,
+
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
+
           editUrl:
             'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
@@ -109,7 +114,7 @@ const config = {
         logo: {
           alt: stie_title + ' Logo',
           src: 'img/logo.svg',
-          srcDark:'img/logo-dark.svg'
+          srcDark: 'img/logo-dark.svg'
         },
         items: [
           { to: '/archive', label: 'Archive', position: 'left' },

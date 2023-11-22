@@ -1,3 +1,8 @@
+---
+last_update:
+  author: LingFeng-bbben
+---
+
 ## 皮肤Skin文件夹对照表
 
 *Outdated*
@@ -48,5 +53,3 @@
 |touchHold_riser.wav|TouchHold按住的音效|
 |track_start.wav|开始播放的音效|
 
-Authors :
-- LingFeng-bbben
