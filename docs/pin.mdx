@@ -1,3 +1,19 @@
 # 笔记
 
 终于改好了
+
+
+## tailwindcss 在父容器内设置子项目的样式
+用 `[&>.child]:` 和 `[&_.child]:`
+
+```jsx live
+function Demo({ ...props }){
+  return (<>
+    <div className='[&>div]:bg-sky-400/25 [&_a]:text-green-500  flex space-x-4 [&>div]:p-4 '>
+      <div><a>Apple</a> ... </div>
+      <div><a>Boy</a> ... </div>
+      <div><a>Cat</a> ... </div>
+    </div>
+  </>)
+}
+```

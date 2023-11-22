@@ -11,9 +11,10 @@ import { usePluginData } from '@docusaurus/useGlobalData';
 
 
 export default function SearchBar(props) {
+    
+  // TODO
 
   return (<div>
-    ?
   </div>
   );
 }

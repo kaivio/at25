@@ -6,7 +6,7 @@
 
 import { themes as prismThemes } from 'prism-react-renderer';
 
-const stie_title = '{{stie_title}}'
+const stie_title = process.env['site_title'] || 'Docusaurus'
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -191,7 +191,7 @@ const config = {
          * The position of the live playground, above or under the editor
          * Possible values: "top" | "bottom"
          */
-        playgroundPosition: 'top',
+        playgroundPosition: 'bottom',
       }
     }),
 };
