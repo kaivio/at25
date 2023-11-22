@@ -9,7 +9,10 @@
 /* @import 'tailwindcss/base'; */
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-/* @import 'https://cdn.jsdelivr.net/npm/codemirror@5.65.14/theme/solarized.css'; */
+
+
+
+
 
 :root {
   --ifm-color-primary: #4abaf2;
@@ -28,14 +31,6 @@
 }
 
 :root[data-theme='dark'] {
-  /* --ifm-color-primary: #48b8f2;
-  --ifm-color-primary-dark: #2badf0;
-  --ifm-color-primary-darker: #1ca7ef;
-  --ifm-color-primary-darkest: #0f8ccd;
-  --ifm-color-primary-light: #65c3f4;
-  --ifm-color-primary-lighter: #74c9f5;
-  --ifm-color-primary-lightest: #a0daf8; */
-
   --ifm-color-primary: #5fb5b9;
   --ifm-color-primary-dark: #4dabaf;
   --ifm-color-primary-darker: #48a1a6;
@@ -49,35 +44,16 @@
 
 }
 
-.dropdown-menu {
-  background-color: var(--ifm-dropdown-background-color);
-  border-radius: var(--ifm-global-radius);
-  box-shadow: var(--ifm-global-shadow-md);
-  /* box-shadow: var(--ifm-global-shadow-lw); */
-  /* left: 0;
-  list-style: none;
-  max-height: 80vh;
-  min-width: 10rem;
-  opacity: 0;
-  overflow-y: auto;
-  padding: 0.5rem;
-  pointer-events: none;
-  position: absolute;
-  transform: translateY(-0.625rem);
-  visibility: hidden;
-  z-index: var(--ifm-z-index-dropdown);
-  transition-property: opacity, transform, visibility;
-  transition-duration: var(--ifm-transition-fast);
-  transition-timing-function: var(--ifm-transition-timing-default); */
+
+/* 优化导航栏的响应式显示，右侧固定，左侧改小 */
+@media (min-width: 640px) {
+  .navbar__item {
+    display: block;
+  }
 }
+.navbar__items--right .navbar__item {
+  display: block !important;
 
-.navbar__link--active {
-  color: var(--ifm-navbar-link-color) !important;
-}
-
-
-.inline-size-max {
-  inline-size: max-content;
 }
 
 pre,
@@ -85,6 +61,21 @@ code,
 .react-json-view {
   font-family: var(--ifm-font-family-monospace) !important;
 }
+
+.navbar__link--active {
+  color: var(--ifm-navbar-link-color) !important;
+}
+
+/* ***************************************************** */
+/*              docusaurus  end                          */
+/* ***************************************************** */
+
+
+.inline-size-max {
+  inline-size: max-content;
+}
+
+
 
 .CodeMirror,
 .cm-editor {
