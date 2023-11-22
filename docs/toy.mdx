@@ -1,0 +1,23 @@
+# Toy
+
+
+
+[导出html](javascript:!function downloadPageHTML(){var htmlContent=document.documentElement.outerHTML;var blob=new Blob([htmlContent],{type:'text/html'});var downloadLink=document.createElement('a');downloadLink.href=URL.createObjectURL(blob);downloadLink.download='page.html';downloadLink.click()}())
+
+```js
+!function downloadPageHTML() {
+  // 获取当前页面的 HTML 内容
+  var htmlContent = document.documentElement.outerHTML;
+
+  // 创建一个 Blob 对象
+  var blob = new Blob([htmlContent], { type: 'text/html' });
+
+  // 创建一个下载链接
+  var downloadLink = document.createElement('a');
+  downloadLink.href = URL.createObjectURL(blob);
+  downloadLink.download = 'page.html';
+
+  // 模拟点击下载链接
+  downloadLink.click();
+}()
+```
