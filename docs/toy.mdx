@@ -2,8 +2,13 @@
 
 import Link from '@docusaurus/Link';
 
-<Link to='javascript:!function downloadPageHTML(){var htmlContent=document.documentElement.outerHTML;var blob=new Blob([htmlContent],{type:'text/html'});var downloadLink=document.createElement('a');downloadLink.href=URL.createObjectURL(blob);downloadLink.download='page.html';downloadLink.click()}()'>导出 html</Link>
+<Link to="javascript:!function downloadPageHTML(){var htmlContent=document.documentElement.outerHTML;var blob=new Blob([htmlContent],{type:'text/html'});var downloadLink=document.createElement('a');downloadLink.href=URL.createObjectURL(blob);downloadLink.download='page.html';downloadLink.click()}()">导出 html</Link>
 
+export function X(){
+    return <a href="javascript:!function downloadPageHTML(){var htmlContent=document.documentElement.outerHTML;var blob=new Blob([htmlContent],{type:'text/html'});var downloadLink=document.createElement('a');downloadLink.href=URL.createObjectURL(blob);downloadLink.download='page.html';downloadLink.click()}()">导出 html</a>
+}
+
+<X />
 
 ```js
 !function downloadPageHTML() {
