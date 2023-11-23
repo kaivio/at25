@@ -11,9 +11,11 @@ export default function PlayDav({ ...props }) {
 
   const [contents, setContents] = useState([])
 
-  const url = new URL('/', document.location)
-  url.port = '1919'
+
   useEffect(() => {
+    const url = new URL('/', document.location)
+    url.port = '1919'
+    
     const client = createClient(url.toString());
     // Get directory contents
 
