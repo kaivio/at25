@@ -7,6 +7,8 @@
 import { themes as prismThemes } from 'prism-react-renderer';
 
 const stie_title = process.env['site_title'] || 'Docusaurus'
+const site_url = process.env['site_url'] || 'https://docusaurus.io'
+const site_path = process.env['site_path'] || '/'
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -53,10 +55,10 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: site_url,
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl:  site_path,
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
