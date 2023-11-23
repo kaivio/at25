@@ -3,6 +3,7 @@ import Layout from '@theme/Layout';
 
 import CodeBlock from '@theme/CodeBlock';
 import BrowserOnly from '@docusaurus/BrowserOnly';
+import useGlobalData, { usePluginData } from '@docusaurus/useGlobalData';
 
 
 export default function Hello() {
@@ -14,7 +15,7 @@ export default function Hello() {
           let keys = []
           for (let i = 0; i <= localStorage.length; i++) {
             keys.push(localStorage.key(i))
-            console.log(keys);
+            // console.log(keys);
           }
           return <>
             {keys.map((k) => (k && <CodeBlock title={k} key={k}>
@@ -23,7 +24,7 @@ export default function Hello() {
           </>;
         }}
       </BrowserOnly>
-      <button class="button button--warning" 
+      <button className="button button--warning" 
       onClick={()=>localStorage.clear()}>chear</button>
       </div>
     </Layout>

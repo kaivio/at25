@@ -1,5 +1,6 @@
 // import process from 'node:process'
-
+import find from 'find'
+import path from 'path'
 
 // A JavaScript function that returns an object.
 // `context` is provided by Docusaurus. Example: siteConfig can be accessed from context.
@@ -13,18 +14,61 @@ async function myPlugin(context, opts) {
     // A good way will be to add your own project name within.
     name: 'my-plugin',
 
-    // async loadContent() {
-    //   // The loadContent hook is executed after siteConfig and env has been loaded.
-    //   // You can return a JavaScript object that will be passed to contentLoaded hook.
-    // },
+    async loadContent() {
+      // const pages = find.fileSync('src/pages')
+      // return {
+      //   pages,
+      // }
 
-    async contentLoaded({content, actions}) {
+      // The loadContent hook is executed after siteConfig and env has been loaded.
+      // You can return a JavaScript object that will be passed to contentLoaded hook.
+    },
+
+    async contentLoaded({ content, actions }) {
       console.log('[myPlugin: contentLoaded]');
-      console.log(content);
-      console.log(actions);
+      // console.log(content);
+      // console.log(actions);
 
-      let data = {hello:'world'}
-      for(let k of ['NODE_ENV','BABEL_ENV']){
+
+      const { createData, addRoute } = actions;
+      // Create pages.json
+      const files = find.fileSync('src/pages')
+      const pages = []
+      for (let f of files) {
+        let relpath = path.relative('src/pages', f)
+        let { dir, name, ext } = path.parse(relpath)
+        if(name == 'index'){
+          name = '/'
+        }
+        let href = path.join('/', dir, name).replaceAll('\\', '/')
+        let file = f.replaceAll('\\', '/')
+        let mtime = 0 // TODO
+        pages.push({ href, file, mtime })
+
+
+      }
+
+      console.log('total ' + pages.length + ' pages ');
+
+      const pagesJsonPath = await createData(
+        'pages.json',
+        JSON.stringify(pages),
+      );
+
+      // Add the '/manage' routes, and ensure it receives the 'pages' props
+      addRoute({
+        path: '/manage',
+        component: '@site/src/components/MyPluginView.js',
+        modules: {
+          // propName -> JSON file path
+          pages: pagesJsonPath,
+        },
+        exact: true,
+      });
+
+      // --------------------------------
+      let data = { hello: 'world' }
+      for (let k of ['NODE_ENV', 'BABEL_ENV']) {
         data[k] = process.env[k]
       }
 
