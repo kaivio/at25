@@ -5,6 +5,8 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start --host 0.0.0.0 --no-open",
+    "webdav": "webdav-cli --username 'a' --password '123' --methodsWithoutAuthentication PROPPATCH,PROPFIND,OPTIONS,DELETE,UNLOCK,COPY,LOCK,MOVE,HEAD,POST,PUT,GET,MKCOL",
+    "dev": "concurrently 'yarn start' 'yarn webdav'",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
@@ -31,7 +33,9 @@
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.0.0",
-    "@docusaurus/types": "3.0.0"
+    "@docusaurus/types": "3.0.0",
+    "@masx200/webdav-cli": "^3.1.1",
+    "concurrently": "^8.2.2"
   },
   "browserslist": {
     "production": [
