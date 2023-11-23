@@ -17,6 +17,7 @@ export default ((req, res) => {
   } catch (e) {
     res.statusCode = 400;
     res.setHeader("access-control-allow-origin", "*");
+    res.setHeader('access-control-allow-methods', "*")
     res.json({
       message: "Parameter error",
       error: e
