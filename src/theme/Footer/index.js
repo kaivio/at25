@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import {useThemeConfig} from '@docusaurus/theme-common';
 
 import MDXContent from '@theme/MDXContent'
-import FooterContent from '@site/view/footer';
+import FooterContent from '../../view/footer';
 
 
 function Footer() {
